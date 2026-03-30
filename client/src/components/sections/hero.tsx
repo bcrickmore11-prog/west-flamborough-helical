@@ -8,7 +8,7 @@ export function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/attached_assets/IMG_4285_1765763349044.jpeg"
+          src={`${import.meta.env.BASE_URL}attached_assets/IMG_4285_1765763349044.jpeg`}
           alt="GoliathTech Helical Pile Installation"
           className="w-full h-full object-cover opacity-70"
         />
