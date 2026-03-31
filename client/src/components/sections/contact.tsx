@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Upload, FileText, X } from "lucide-react";
-import { useState, useRef } from "react";
+import { Phone, Mail, MapPin, Paperclip } from "lucide-react";
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 // ============================================================
@@ -17,8 +17,6 @@ const WEB3FORMS_ACCESS_KEY = "da65fb2b-7d71-41d6-9acf-49406b37f68f";
 export function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -26,29 +24,6 @@ export function Contact() {
     email: "",
     projectDetails: "",
   });
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      // Web3Forms supports up to 5MB file attachments
-      if (file.size > 5 * 1024 * 1024) {
-        toast({
-          title: "File too large",
-          description: "Please upload a file smaller than 5MB",
-          variant: "destructive",
-        });
-        return;
-      }
-      setSelectedFile(file);
-    }
-  };
-
-  const removeFile = () => {
-    setSelectedFile(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,10 +39,6 @@ export function Contact() {
       submitData.append("Phone", formData.phone);
       submitData.append("Email", formData.email);
       submitData.append("Project Details", formData.projectDetails);
-
-      if (selectedFile) {
-        submitData.append("attachment", selectedFile);
-      }
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -88,10 +59,6 @@ export function Contact() {
           email: "",
           projectDetails: "",
         });
-        setSelectedFile(null);
-        if (fileInputRef.current) {
-          fileInputRef.current.value = "";
-        }
       } else {
         toast({
           title: "Error",
@@ -222,52 +189,23 @@ export function Contact() {
                 />
               </div>
 
-              {/* File Upload Section */}
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-zinc-400">
-                  Project File (Optional)
-                </label>
-                <p className="text-xs text-zinc-500 mb-2">
-                  Upload a sketch or formal plan drawings (PDF, Images, or Documents up to 5MB)
-                </p>
-                
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  onChange={handleFileChange}
-                  accept=".pdf,.jpg,.jpeg,.png,.gif,.webp,.tiff,.doc,.docx,.xls,.xlsx"
-                  className="hidden"
-                  id="projectFile"
-                />
-                
-                {!selectedFile ? (
-                  <label
-                    htmlFor="projectFile"
-                    className="flex items-center justify-center gap-3 h-24 border-2 border-dashed border-white/20 hover:border-primary/50 cursor-pointer transition-colors bg-white/5"
-                  >
-                    <Upload className="h-6 w-6 text-zinc-400" />
-                    <span className="text-zinc-400 font-bold text-sm uppercase tracking-wide">
-                      Click to Upload File
-                    </span>
-                  </label>
-                ) : (
-                  <div className="flex items-center gap-3 p-4 bg-white/5 border border-white/10">
-                    <FileText className="h-8 w-8 text-primary shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-bold truncate">{selectedFile.name}</p>
-                      <p className="text-xs text-zinc-500">
-                        {(selectedFile.size / 1024 / 1024).toFixed(2)} MB
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={removeFile}
-                      className="p-1 hover:bg-white/10 rounded transition-colors"
+              {/* File Attachment Directive */}
+              <div className="flex items-start gap-3 p-4 bg-white/5 border border-white/10">
+                <Paperclip className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-sm font-bold text-zinc-300 mb-1">
+                    Have plans or drawings?
+                  </p>
+                  <p className="text-xs text-zinc-500 leading-relaxed">
+                    Email them directly to{" "}
+                    <a
+                      href="mailto:brantford@goliathtechpiles.com"
+                      className="text-primary hover:underline font-bold"
                     >
-                      <X className="h-5 w-5 text-zinc-400 hover:text-white" />
-                    </button>
-                  </div>
-                )}
+                      brantford@goliathtechpiles.com
+                    </a>
+                  </p>
+                </div>
               </div>
 
               <Button 
