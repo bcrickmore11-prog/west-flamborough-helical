@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { BenefitsSection } from "@/components/sections/benefits";
 import { About } from "@/components/sections/about";
 import { ProductFeatures } from "@/components/sections/product-features";
+import { ProductDetail } from "@/components/sections/product-detail";
 import { ApplicationsCarousel } from "@/components/sections/applications-carousel";
 import { AudienceSegments } from "@/components/sections/audience-segments";
 import { Projects } from "@/components/sections/projects";
@@ -21,6 +22,7 @@ export default function Home() {
         <BenefitsSection />
         <About />
         <ProductFeatures />
+        <ProductDetail />
         <ApplicationsCarousel />
         <AudienceSegments />
         <Projects />
