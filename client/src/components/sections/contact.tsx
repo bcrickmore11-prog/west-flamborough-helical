@@ -144,7 +144,7 @@ export function Contact() {
                 <Mail className="h-6 w-6 text-primary mt-1" />
                 <div>
                   <h3 className="font-bold uppercase text-lg">Email Us</h3>
-                  <p className="text-zinc-500 font-mono">brantford@goliathtech.com</p>
+                  <p className="text-zinc-500 font-mono">brantford@goliathtechpiles.com</p>
                 </div>
               </div>
               

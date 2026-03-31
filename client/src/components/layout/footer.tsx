@@ -30,7 +30,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm font-medium">
               <li>Brantford, West Flamborough/Hamilton, St George, Paris</li>
               <li>905-630-1234</li>
-              <li>brantford@goliathtech.com</li>
+              <li>brantford@goliathtechpiles.com</li>
             </ul>
           </div>
         </div>
