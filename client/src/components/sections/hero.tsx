@@ -44,7 +44,7 @@ export function Hero() {
                   Request a Quote
                 </Button>
               </a>
-              <a href="#services">
+              <a href="#applications">
                 <Button variant="outline" size="lg" className="text-base px-10 h-14 font-bold uppercase tracking-wide border-2 border-white text-white hover:bg-white hover:text-black rounded-none transition-all">
                   Our Solutions <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
