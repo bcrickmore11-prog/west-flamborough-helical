@@ -1,9 +1,13 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Hero } from "@/components/sections/hero";
-import { Services } from "@/components/sections/services";
-import { Projects } from "@/components/sections/projects";
-import { EngineeringServices } from "@/components/sections/engineering-services";
+import { BenefitsSection } from "@/components/sections/benefits";
 import { About } from "@/components/sections/about";
+import { ApplicationsCarousel } from "@/components/sections/applications-carousel";
+import { AudienceSegments } from "@/components/sections/audience-segments";
+import { Projects } from "@/components/sections/projects";
+import { StatsBar } from "@/components/sections/stats-bar";
+import { CertificationsSection } from "@/components/sections/certifications";
+import { EngineeringServices } from "@/components/sections/engineering-services";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/layout/footer";
 
@@ -13,10 +17,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <Projects />
-        <EngineeringServices />
+        <BenefitsSection />
         <About />
+        <ApplicationsCarousel />
+        <AudienceSegments />
+        <Projects />
+        <StatsBar />
+        <CertificationsSection />
+        <EngineeringServices />
         <Contact />
       </main>
       <Footer />
