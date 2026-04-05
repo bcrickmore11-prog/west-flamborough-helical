@@ -119,7 +119,7 @@ export function Contact() {
                 <MapPin className="h-6 w-6 text-primary mt-1" />
                 <div>
                   <h3 className="font-bold uppercase text-lg">Service Area</h3>
-                  <p className="text-zinc-500">Brantford, West Flamborough/Hamilton, St George, Paris, and surrounding regions.</p>
+                  <p className="text-zinc-500">West Flamborough Helical Inc.</p>
                 </div>
               </div>
             </div>

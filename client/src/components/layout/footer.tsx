@@ -29,7 +29,7 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white uppercase tracking-wider mb-6">Contact</h4>
             <ul className="space-y-3 text-sm font-medium">
-              <li>Brantford, West Flamborough/Hamilton, St George, Paris</li>
+              <li>West Flamborough Helical Inc.</li>
               <li>905-630-1234</li>
               <li>brantford@goliathtechpiles.com</li>
             </ul>
